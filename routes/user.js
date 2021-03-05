@@ -8,13 +8,20 @@ const {
 const route = Router();
 
 route.post("/", async (req, res) => {
-  const user = await User.create({
+  try{const user = await User.create({
     username: req.body.username,
     email: req.body.email,
-    bio: req.body.bio,
-  });
+    bio: req.body.bio
+  })
   res.send(user);
+  console.log(JSON.stringify(user))
   console.log(user.bio);
+  
+}
+  
+  catch(error){
+    console.log(error, "error")
+  }
 });
 
 
@@ -33,12 +40,24 @@ route.get("/:id", async (req, res) => {
   res.send(user);
 });
 
-route.delete("/:id", async (req, res) => {
+route.put("/:id", async (req, res) => {
   const {
     id
   } = req.params;
-  const user = await User.delete(id);
+  const user = await User.update(id);
   res.send(user);
+});
+
+
+route.delete("/:id", async (req, res) => {
+  const {
+     id
+  } = req.params;
+  const user = await User.destroy({where:{
+    id:id
+  }});
+  res.send("deleted successfully");
+  console.log(JSON.stringify(user));
 });
 
 // let user = []
