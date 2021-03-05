@@ -1,17 +1,17 @@
 const {Router} = require('express')
 const route = Router()
 
-let user = []
 route.get('/', (req, res)=>{
-    res.send(user)
+    res.send(
+          {
+                    "user":{
+                      "email": "jake@jake.jake",
+                      "username":"jake",
+                      "bio": "I like to skateboard"                    
+                    }
+                  }
+                )
 })
-
-
-
-
-
-
-
 
 
 
