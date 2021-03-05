@@ -16,11 +16,9 @@ route.post("/", async (req, res) => {
   res.send(user);
   console.log(JSON.stringify(user))
   console.log(user.bio);
-  
-}
-  
+} 
   catch(error){
-    console.log(error, "error")
+    console.log(error.message)                                                                                                                          
   }
 });
 
