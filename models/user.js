@@ -24,14 +24,23 @@ module.exports = (sequelize, DataTypes) => {
 
     bio:{type:DataTypes.TEXT,allowNull: true}
   }, 
-
-  
-  
-  
   
   {
     sequelize,
     modelName: 'User',
   });
+
+
+User.associate = models =>{
+  User.hasOne(models.Profile, {
+    onDelete: "cascade"
+  })
+}
+
+
+
+
+
+
   return User;
 };

@@ -12,7 +12,7 @@ app.use(express.urlencoded({
 app.use('/api/user', require('./routes/user'))
 app.use('/api/users', require('./routes/users'))
 app.use('/api/tags', require('./routes/tags'))
-app.use('/api/profiles', require('./routes/profiles'))
+app.use('/api/profile', require('./routes/profile'))
 app.use('/api/articles', require('./routes/articles'))
 
 module.exports=app
