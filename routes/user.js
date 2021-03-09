@@ -31,22 +31,32 @@ route.post("/", async (req, res) => {
 //   res.send(users);
 // });
 
+// route.get("/", async (req, res) => {
+//   try{
+//     const users = await User.findAll();
+//     res.send(users);
+//   }
+//     catch(error){
+//       console.log(error.message)                  
+//     }
+//   });
+
 route.get("/", async (req, res) => {
   try{
-    const users = await User.findAll({
-      include : [models.Profile]
-    });
-    res.send(users);}
-    catch(error){
-      console.log(error.name)                                                                                                                   
-    }
-  });
+    const users = await User.findAll();
+  res.send(users);
+}
+  catch(error){
+    console.log(error.name)                                                                                                                     
+  }
+});
+
 
 route.get("/:id", async (req, res) => {
   const {
     id
   } = req.params;
-  const user = await User.findByPk(id, { include: 'Profile'});
+  const user = await User.findByPk(id);
   res.send(user);
 });
 
@@ -70,4 +80,4 @@ route.delete("/:id", async (req, res) => {
   console.log(JSON.stringify(user));
 });
 
-module.exports = route;
+module.exports = route;  

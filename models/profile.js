@@ -20,13 +20,13 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'Profile',
   });
 
+  // Profile.associate = models =>{
+  //   Profile.belongsTo(models.Profile)
+  // };
 
-  Profile.associate = models =>{
-    Profile.belongsTo(models.User,{
-      foreignKey:'UserId'
-    })
-  }
+
 
 
   return Profile;
 };
+ 

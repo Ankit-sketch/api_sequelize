@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   User.init({
     email: {type:DataTypes.TEXT,allowNull: false,
-      unique: true,  validate:{
+      unique: true, validate:{
         isEmail: true
       }},  
 
@@ -27,19 +27,19 @@ module.exports = (sequelize, DataTypes) => {
   
   {
     sequelize,
-    modelName: 'User',
+    modelName: 'email',
   });
 
+// User.associate = models =>{
+//   User.hasOne(models.Profile)
+// }
 
-User.associate = models =>{
-  User.hasOne(models.Profile, {
-    onDelete: "cascade"
-  })
-}
-
-
-
-
+// User.associate = models => {
+//   User.hasOne(models.Profile, {
+//     foreignKey: 'Name',
+//     as: 'profile'
+//   }); 
+// };
 
 
   return User;

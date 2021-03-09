@@ -20,7 +20,8 @@ route.post("/", async (req, res) => {
 
 route.get("/", async (req, res) => {
   try{const profiles = await Profile.findAll();
-  res.send(profiles);}
+  res.send(profiles);
+}
   catch(error){
     console.log(error.message)                                                                                                                     
   }
